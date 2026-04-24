@@ -55,6 +55,9 @@ class ModelRendererOffscreen:
     mesh_node = self.scene.add(mesh,pose=np.eye(4), name='ob') # Object pose parent is cam
     self.mesh_nodes.append(mesh_node)
 
+  def set_mesh_pose(self, mesh_pose):
+    for mesh_node in self.mesh_nodes:
+      mesh_node.matrix = mesh_pose
 
   def add_point_light(self, intensity=3):
     light = pyrender.DirectionalLight(color=[1.0, 1.0, 1.0], intensity=intensity)
